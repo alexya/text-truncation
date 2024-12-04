@@ -5,6 +5,21 @@ import Label from './components/Label';
 import 'react-resizable/css/styles.css';
 
 function App() {
+  const options = [
+    // '1 WITH A VERY LONG TEXT THAT SHOULD BE TRUNCATED',
+    // '1 WITH A VERY LONG',
+    '这个是中文的button名字，看看有没有问题，太长了',
+    // '这个是中文的button名字，看看有没有问题',
+    // '看看有没有问题',
+    // '1 WITH A VERY',
+    // 'Option 1',
+    'OPTION 2',
+    // 'OPTION 2 ext',
+    // 'OPTION 2 extra long',
+    // 'OPTION 2 Ext A Longer Text',
+    // 'OPTION 3'
+  ];
+  const renderLabel = true;
   return (
     <Box sx={{ 
       display: 'flex', 
@@ -13,7 +28,8 @@ function App() {
       gap: 2,
       p: 2 
     }}>
-      <Panel />
+      <Panel options={options} />
+      {renderLabel && (
       <ResizableBox
         width={200}
         height={400}
@@ -51,8 +67,9 @@ function App() {
             ellipsisPosition="middle"
           />
           <Label text="Custom width" maxWidth={100} />
-        </Box>
-      </ResizableBox>
+          </Box>
+        </ResizableBox>
+      )}
     </Box>
   );
 }
